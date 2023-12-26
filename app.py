@@ -107,3 +107,27 @@ chatbot_script = f'''
 
 # Display the generated script in a window
 st.code(chatbot_script, language='html')
+
+# Full HTML content for preview
+full_html_content = f'''
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Preview</title>
+</head>
+<body>
+    {chatbot_script}
+</body>
+</html>
+'''
+
+# Preview button for downloading the full HTML file
+if st.button('Preview'):
+    # Convert the full HTML content to a bytes object
+    html_bytes = full_html_content.encode('utf-8')
+    st.download_button(
+        label="Download HTML file",
+        data=html_bytes,
+        file_name="chatbot_preview.html",
+        mime="text/html"
+    )
