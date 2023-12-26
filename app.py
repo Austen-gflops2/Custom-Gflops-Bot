@@ -1,6 +1,5 @@
 import streamlit as st
 import base64
-from fpdf import FPDF
 
 st.title('Chatbot Appearance Customizer')
 
@@ -114,41 +113,5 @@ chatbot_script = f'''
 </html>
 '''
 
-# Function to convert script to a downloadable file
-def get_html_download_link(html_string, filename):
-    b64 = base64.b64encode(html_string.encode()).decode()
-    href = f'<a href="data:file/html;base64,{b64}" download="{filename}">Preview</a>'
-    return href
-
-# Display the download link
-st.markdown(get_html_download_link(chatbot_script, 'chatbot_preview.html'), unsafe_allow_html=True)
-
-# Function to generate PDF
-class PDF(FPDF):
-    def header(self):
-        self.set_font('Helvetica', 'B', 12)
-        self.cell(0, 10, 'Chatbot Script', 0, new_x="LMARGIN", new_y="NEXT")
-
-def create_pdf(html_content):
-    pdf = PDF()
-    pdf.add_page()
-    pdf.set_font("Helvetica", size=12)
-    pdf.multi_cell(0, 10, html_content)
-    return pdf.output(dest='S')
-
-# PDF download button
-if st.button('Download Script as PDF'):
-    pdf_bytes = create_pdf(chatbot_script)
-    st.download_button(
-        label="Download PDF",
-        data=pdf_bytes,
-        file_name="chatbot_script.pdf",
-        mime="application/pdf"
-    )
-
-# Display table
-st.markdown("""
-| Instructions | Paste this anywhere in the `<body>` tag of your html file for your website |
-| ------------ | --------------------------------------------------------------------------- |
-| Code         | See generated script above                                                  |
-""")
+# Display the generated script in a window
+st.code(chatbot_script, language='html')
