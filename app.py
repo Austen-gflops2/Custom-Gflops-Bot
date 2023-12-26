@@ -59,58 +59,50 @@ chat_width = st.slider('Chat Window Width', 200, 800, 400)
 
 # Generate the script based on the inputs
 chatbot_script = f'''
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Chatbot Preview</title>
-</head>
-<body>
-    <script type="module">
-        import Chatbot from "https://cdn.jsdelivr.net/gh/Austen-gflops/GFLOPS-Bot@latest/dist/web.js"
-        Chatbot.init({{
-            chatflowid: "{chatflowid}",
-            apiHost: "https://gflops.onrender.com",
-            chatflowConfig: {{
-                // topK: 2
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/gh/Austen-gflops/GFLOPS-Bot@latest/dist/web.js"
+    Chatbot.init({{
+        chatflowid: "{chatflowid}",
+        apiHost: "https://gflops.onrender.com",
+        chatflowConfig: {{
+            // topK: 2
+        }},
+        theme: {{
+            button: {{
+                backgroundColor: "{button_bg_color}",
+                right: 20,
+                bottom: 20,
+                size: "medium",
+                iconColor: "{icon_color}",
+                customIconSrc: "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.io/f1703588905402x479216801598927300/4c7e238ebf4f4ea5ed704dffc9340d00.svg?_gl=1*ffe2s3*_gcl_au*ODkxOTM4NjU0LjE3MDE4NTc3NTk.*_ga*ODU4NjMwNDY3LjE3MDE4NTc3NTk.*_ga_BFPVR2DEE2*MTcwMzU2MTAwOC4xNy4xLjE3MDM1ODk3MDguNTMuMC4w",
             }},
-            theme: {{
-                button: {{
-                    backgroundColor: "{button_bg_color}",
-                    right: 20,
-                    bottom: 20,
-                    size: "medium",
-                    iconColor: "{icon_color}",
-                    customIconSrc: "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.io/f1703588905402x479216801598927300/4c7e238ebf4f4ea5ed704dffc9340d00.svg?_gl=1*ffe2s3*_gcl_au*ODkxOTM4NjU0LjE3MDE4NTc3NTk.*_ga*ODU4NjMwNDY3LjE3MDE4NTc3NTk.*_ga_BFPVR2DEE2*MTcwMzU2MTAwOC4xNy4xLjE3MDM1ODk3MDguNTMuMC4w",
+            chatWindow: {{
+                welcomeMessage: "{welcome_message}",
+                backgroundColor: "{chat_bg_color}",
+                height: {chat_height},
+                width: {chat_width},
+                fontSize: {font_size},
+                poweredByTextColor: "#303235",
+                botMessage: {{
+                    backgroundColor: "{bot_msg_bg_color}",
+                    textColor: "#303235",
+                    showAvatar: false,
                 }},
-                chatWindow: {{
-                    welcomeMessage: "{welcome_message}",
-                    backgroundColor: "{chat_bg_color}",
-                    height: {chat_height},
-                    width: {chat_width},
-                    fontSize: {font_size},
-                    poweredByTextColor: "#303235",
-                    botMessage: {{
-                        backgroundColor: "{bot_msg_bg_color}",
-                        textColor: "#303235",
-                        showAvatar: false,
-                    }},
-                    userMessage: {{
-                        backgroundColor: "{user_msg_bg_color}",
-                        textColor: "#FFFFFF",
-                        showAvatar: false,
-                    }},
-                    textInput: {{
-                        placeholder: "Type your question",
-                        backgroundColor: "{text_input_bg_color}",
-                        textColor: "#303235",
-                        sendButtonColor: "{button_bg_color}",
-                    }}
+                userMessage: {{
+                    backgroundColor: "{user_msg_bg_color}",
+                    textColor: "#FFFFFF",
+                    showAvatar: false,
+                }},
+                textInput: {{
+                    placeholder: "Type your question",
+                    backgroundColor: "{text_input_bg_color}",
+                    textColor: "#303235",
+                    sendButtonColor: "{button_bg_color}",
                 }}
             }}
-        }})
-    </script>
-</body>
-</html>
+        }}
+    }})
+</script>
 '''
 
 # Display the generated script in a window
