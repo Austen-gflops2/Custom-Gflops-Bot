@@ -1,9 +1,5 @@
 import streamlit as st
-
-def create_html_file(content, filename="chatbot_preview.html"):
-    with open(filename, "w") as file:
-        file.write(content)
-    return filename
+import base64
 
 st.title('Chatbot Appearance Customizer')
 
@@ -81,8 +77,14 @@ chatbot_script = f'''
 </html>
 '''
 
-if st.button('Generate HTML'):
-    filename = create_html_file(chatbot_script)
-    st.markdown(f"HTML file generated: [{filename}](./{filename})")
+# Function to convert script to a downloadable file
+def get_html_download_link(html_string, filename):
+    b64 = base64.b64encode(html_string.encode()).decode()
+    href = f'<a href="data:file/html;base64,{b64}" download="{filename}">Download HTML file</a>'
+    return href
 
+# Display the download link
+st.markdown(get_html_download_link(chatbot_script, 'chatbot_preview.html'), unsafe_allow_html=True)
+
+# Display the generated script
 st.text_area("Generated Script:", chatbot_script, height=250)
