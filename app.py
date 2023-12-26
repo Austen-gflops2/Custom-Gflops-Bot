@@ -14,8 +14,6 @@ text_input_bg_color_img = "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.i
 # Input fields
 chatflowid = st.text_input('Chatflow ID', '40dfbdcb-88cd-4559-aac0-192f302f5811')
 welcome_message = st.text_input('Welcome Message', 'Hello! How can I help you today?')
-
-# Input for customIconSrc
 default_icon_src = "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.io/f1703588905402x479216801598927300/4c7e238ebf4f4ea5ed704dffc9340d00.svg?_gl=1*ffe2s3*_gcl_au*ODkxOTM4NjU0LjE3MDE4NTc3NTk.*_ga*ODU4NjMwNDY3LjE3MDE4NTc3NTk.*_ga_BFPVR2DEE2*MTcwMzU2MTAwOC4xNy4xLjE3MDM1ODk3MDguNTMuMC4w"
 custom_icon_src = st.text_input('Custom Icon URL', default_icon_src)
 
@@ -26,7 +24,35 @@ with col1:
 with col2:
     button_bg_color = st.color_picker('Button Background Color', '#3B81F6')
 
-# [Rest of your existing color pickers...]
+col1, col2 = st.columns([1, 3])
+with col1:
+    st.image(icon_color_img, caption='Icon Color')
+with col2:
+    icon_color = st.color_picker('Icon Color', '#FFFFFF')
+
+col1, col2 = st.columns([1, 3])
+with col1:
+    st.image(chat_bg_color_img, caption='Chat Window Background Color')
+with col2:
+    chat_bg_color = st.color_picker('Chat Window Background Color', '#FFFFFF')
+
+col1, col2 = st.columns([1, 3])
+with col1:
+    st.image(bot_msg_bg_color_img, caption='Bot Message Background Color')
+with col2:
+    bot_msg_bg_color = st.color_picker('Bot Message Background Color', '#F7F8FF')
+
+col1, col2 = st.columns([1, 3])
+with col1:
+    st.image(user_msg_bg_color_img, caption='User Message Background Color')
+with col2:
+    user_msg_bg_color = st.color_picker('User Message Background Color', '#3B81F6')
+
+col1, col2 = st.columns([1, 3])
+with col1:
+    st.image(text_input_bg_color_img, caption='Text Input Background Color')
+with col2:
+    text_input_bg_color = st.color_picker('Text Input Background Color', '#FFFFFF')
 
 # Sliders
 font_size = st.slider('Font Size', 10, 30, 16)
