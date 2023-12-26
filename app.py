@@ -126,13 +126,13 @@ st.markdown(get_html_download_link(chatbot_script, 'chatbot_preview.html'), unsa
 # Function to generate PDF
 class PDF(FPDF):
     def header(self):
-        self.set_font('Arial', 'B', 12)
-        self.cell(0, 10, 'Chatbot Script', 0, 1, 'C')
+        self.set_font('Helvetica', 'B', 12)
+        self.cell(0, 10, 'Chatbot Script', 0, new_x="LMARGIN", new_y="NEXT")
 
 def create_pdf(html_content):
     pdf = PDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
+    pdf.set_font("Helvetica", size=12)
     pdf.multi_cell(0, 10, html_content)
     pdf_output = pdf.output(dest='S').encode('latin1')
     return pdf_output
