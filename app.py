@@ -134,15 +134,14 @@ def create_pdf(html_content):
     pdf.add_page()
     pdf.set_font("Helvetica", size=12)
     pdf.multi_cell(0, 10, html_content)
-    pdf_output = pdf.output(dest='S').encode('latin1')
-    return pdf_output
+    return pdf.output(dest='S')
 
 # PDF download button
 if st.button('Download Script as PDF'):
-    pdf = create_pdf(chatbot_script)
+    pdf_bytes = create_pdf(chatbot_script)
     st.download_button(
         label="Download PDF",
-        data=pdf,
+        data=pdf_bytes,
         file_name="chatbot_script.pdf",
         mime="application/pdf"
     )
