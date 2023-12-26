@@ -3,8 +3,9 @@ import base64
 
 st.title('Chatbot Appearance Customizer')
 
-# Input for chatflowid
+# Input fields
 chatflowid = st.text_input('Chatflow ID', '40dfbdcb-88cd-4559-aac0-192f302f5811')
+welcome_message = st.text_input('Welcome Message', 'Hello! How can I help you today?')
 
 # Color pickers
 button_bg_color = st.color_picker('Button Background Color', '#3B81F6')
@@ -45,7 +46,7 @@ chatbot_script = f'''
                     customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
                 }},
                 chatWindow: {{
-                    welcomeMessage: "Hello! This is custom welcome message",
+                    welcomeMessage: "{welcome_message}",
                     backgroundColor: "{chat_bg_color}",
                     height: {chat_height},
                     width: {chat_width},
@@ -54,14 +55,12 @@ chatbot_script = f'''
                     botMessage: {{
                         backgroundColor: "{bot_msg_bg_color}",
                         textColor: "#303235",
-                        showAvatar: true,
-                        avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
+                        showAvatar: false,
                     }},
                     userMessage: {{
                         backgroundColor: "{user_msg_bg_color}",
                         textColor: "#FFFFFF",
-                        showAvatar: true,
-                        avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                        showAvatar: false,
                     }},
                     textInput: {{
                         placeholder: "Type your question",
