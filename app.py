@@ -43,7 +43,7 @@ chatbot_script = f'''
                     bottom: 20,
                     size: "medium",
                     iconColor: "{icon_color}",
-                    customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+                    customIconSrc: "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.io/f1703588905402x479216801598927300/4c7e238ebf4f4ea5ed704dffc9340d00.svg?_gl=1*1qj65ui*_gcl_au*ODkxOTM4NjU0LjE3MDE4NTc3NTk.*_ga*ODU4NjMwNDY3LjE3MDE4NTc3NTk.*_ga_BFPVR2DEE2*MTcwMzU2MTAwOC4xNy4xLjE3MDM1ODg3NzQuNDcuMC4w",
                 }},
                 chatWindow: {{
                     welcomeMessage: "{welcome_message}",
