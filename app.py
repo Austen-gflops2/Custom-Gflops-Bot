@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 
 def create_html_file(content, filename="chatbot_preview.html"):
     with open(filename, "w") as file:
@@ -13,11 +12,11 @@ chatflowid = st.text_input('Chatflow ID', '40dfbdcb-88cd-4559-aac0-192f302f5811'
 
 # Color pickers
 button_bg_color = st.color_picker('Button Background Color', '#3B81F6')
-icon_color = st.color_picker('Icon Color', 'white')
-chat_bg_color = st.color_picker('Chat Window Background Color', '#ffffff')
-bot_msg_bg_color = st.color_picker('Bot Message Background Color', '#f7f8ff')
+icon_color = st.color_picker('Icon Color', '#FFFFFF')
+chat_bg_color = st.color_picker('Chat Window Background Color', '#FFFFFF')
+bot_msg_bg_color = st.color_picker('Bot Message Background Color', '#F7F8FF')
 user_msg_bg_color = st.color_picker('User Message Background Color', '#3B81F6')
-text_input_bg_color = st.color_picker('Text Input Background Color', '#ffffff')
+text_input_bg_color = st.color_picker('Text Input Background Color', '#FFFFFF')
 
 # Sliders
 font_size = st.slider('Font Size', 10, 30, 16)
@@ -64,7 +63,7 @@ chatbot_script = f'''
                     }},
                     userMessage: {{
                         backgroundColor: "{user_msg_bg_color}",
-                        textColor: "#ffffff",
+                        textColor: "#FFFFFF",
                         showAvatar: true,
                         avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
                     }},
