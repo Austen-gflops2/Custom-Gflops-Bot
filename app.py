@@ -1,6 +1,6 @@
 import streamlit as st
 import base64
-import pdfkit
+from fpdf import FPDF
 
 st.title('Chatbot Appearance Customizer')
 
@@ -124,20 +124,28 @@ def get_html_download_link(html_string, filename):
 st.markdown(get_html_download_link(chatbot_script, 'chatbot_preview.html'), unsafe_allow_html=True)
 
 # Function to generate PDF
-def create_pdf(html_content, filename):
-    pdfkit.from_string(html_content, filename)
-    return filename
+class PDF(FPDF):
+    def header(self):
+        self.set_font('Arial', 'B', 12)
+        self.cell(0, 10, 'Chatbot Script', 0, 1, 'C')
+
+def create_pdf(html_content):
+    pdf = PDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, html_content)
+    pdf_output = pdf.output(dest='S').encode('latin1')
+    return pdf_output
 
 # PDF download button
 if st.button('Download Script as PDF'):
-    pdf_filename = create_pdf(chatbot_script, 'chatbot_script.pdf')
-    with open(pdf_filename, "rb") as file:
-        btn = st.download_button(
-            label="Download PDF",
-            data=file,
-            file_name="chatbot_script.pdf",
-            mime="application/octet-stream"
-        )
+    pdf = create_pdf(chatbot_script)
+    st.download_button(
+        label="Download PDF",
+        data=pdf,
+        file_name="chatbot_script.pdf",
+        mime="application/pdf"
+    )
 
 # Display table
 st.markdown("""
