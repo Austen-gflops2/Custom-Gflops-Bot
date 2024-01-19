@@ -111,7 +111,52 @@ st.code(chatbot_script, language='html')
 
 # Display the script in an HTML container in the sidebar
 st.sidebar.markdown('## Generated HTML Script')
-st.sidebar.markdown('<h1>Hello, world!</h1>', unsafe_allow_html=True)
+st.sidebar.markdown('<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/gh/Austen-gflops/GFLOPS-Bot@latest/dist/web.js"
+    Chatbot.initFull({
+        chatflowid: "c2997e6b-5493-40c9-a113-1381c8f394cd",
+        apiHost: "https://gflops.onrender.com",
+        chatflowConfig: {
+            // topK: 2
+        },
+        theme: {
+            button: {
+                backgroundColor: "#ae94bd",
+                right: 20,
+                bottom: 20,
+                size: "medium",
+                iconColor: "#FFFEFE",
+                customIconSrc: "https://ff81102eb168dd62d43d613bfe6559b8.cdn.bubble.io/f1703588905402x479216801598927300/4c7e238ebf4f4ea5ed704dffc9340d00.svg?_gl=1*ffe2s3*_gcl_au*ODkxOTM4NjU0LjE3MDE4NTc3NTk.*_ga*ODU4NjMwNDY3LjE3MDE4NTc3NTk.*_ga_BFPVR2DEE2*MTcwMzU2MTAwOC4xNy4xLjE3MDM1ODk3MDguNTMuMC4w",
+            },
+            chatWindow: {
+                welcomeMessage: "Hello! How can I help you today? 日本語でもコミュニケーションが取れます",
+                backgroundColor: "#FFFFFF",
+                height: 550,
+                width: 450,
+                fontSize: 14,
+                poweredByTextColor: "#303235",
+                botMessage: {
+                    backgroundColor: "#c2dbf1",
+                    textColor: "#303235",
+                    showAvatar: false,
+                },
+                userMessage: {
+                    backgroundColor: "#002875",
+                    textColor: "#FFFFFF",
+                    showAvatar: false,
+                },
+                textInput: {
+                    placeholder: "Type your question",
+                    backgroundColor: "#FFFFFF",
+                    textColor: "#303235",
+                    sendButtonColor: "#001277",
+                }
+            }
+        }
+    })
+</script>
+<flowise-fullchatbot></flowise-fullchatbot>
+', unsafe_allow_html=True)
 
 # Full HTML content for preview
 full_html_content = f'''
