@@ -111,7 +111,7 @@ st.code(chatbot_script, language='html')
 
 # Display the script in an HTML container in the sidebar
 st.sidebar.markdown('## Generated HTML Script')
-st.sidebar.markdown(chatbot_script, unsafe_allow_html=True)
+st.sidebar.markdown('<h1>Hello, world!</h1>', unsafe_allow_html=True)
 
 # Full HTML content for preview
 full_html_content = f'''
