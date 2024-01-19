@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 
 st.title('Chatbot Appearance Customizer')
 
@@ -109,6 +108,10 @@ chatbot_script = f'''
 
 # Display the generated script in a window
 st.code(chatbot_script, language='html')
+
+# Display the script in an HTML container
+st.markdown('## Generated HTML Script')
+st.markdown(chatbot_script, unsafe_allow_html=True)
 
 # Full HTML content for preview
 full_html_content = f'''
